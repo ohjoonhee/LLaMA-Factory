@@ -114,6 +114,7 @@ class AttentionFunction(str, Enum):
     DISABLED = "disabled"
     SDPA = "sdpa"
     FA2 = "fa2"
+    FA3 = "fa3"
 
 
 class EngineName(str, Enum):
@@ -1067,7 +1068,7 @@ register_model_group(
             DownloadSource.MODELSCOPE: "openai/gpt-oss-120b",
         },
     },
-    template="gpt",
+    template="gpt_oss",
 )
 
 
@@ -1805,6 +1806,21 @@ register_model_group(
 
 register_model_group(
     models={
+        "MiMo-V2-Flash-Base": {
+            DownloadSource.DEFAULT: "XiaomiMiMo/MiMo-V2-Flash-Base",
+            DownloadSource.MODELSCOPE: "XiaomiMiMo/MiMo-V2-Flash-Base",
+        },
+        "MiMo-V2-Flash": {
+            DownloadSource.DEFAULT: "XiaomiMiMo/MiMo-V2-Flash",
+            DownloadSource.MODELSCOPE: "XiaomiMiMo/MiMo-V2-Flash",
+        },
+    },
+    template="mimo_v2",
+)
+
+
+register_model_group(
+    models={
         "MiMo-7B-VL-RL": {
             DownloadSource.DEFAULT: "XiaomiMiMo/MiMo-VL-7B-RL",
             DownloadSource.MODELSCOPE: "XiaomiMiMo/MiMo-VL-7B-RL",
@@ -1827,7 +1843,7 @@ register_model_group(
         },
         "MiMo-VL-7B-SFT-2508": {
             DownloadSource.DEFAULT: "XiaomiMiMo/MiMo-VL-7B-SFT-2508",
-            DownloadSource.DEFAULT: "XiaomiMiMo/MiMo-VL-7B-SFT-2508",
+            DownloadSource.MODELSCOPE: "XiaomiMiMo/MiMo-VL-7B-SFT-2508",
         },
     },
     template="qwen2_vl",
@@ -1980,6 +1996,18 @@ register_model_group(
 
 register_model_group(
     models={
+        "Ministral-3-3B-Base-2512": {
+            DownloadSource.DEFAULT: "mistralai/Ministral-3-3B-Base-2512",
+            DownloadSource.MODELSCOPE: "mistralai/Ministral-3-3B-Base-2512",
+        },
+        "Ministral-3-8B-Base-2512": {
+            DownloadSource.DEFAULT: "mistralai/Ministral-3-8B-Base-2512",
+            DownloadSource.MODELSCOPE: "mistralai/Ministral-3-8B-Base-2512",
+        },
+        "Ministral-3-14B-Base-2512": {
+            DownloadSource.DEFAULT: "mistralai/Ministral-3-14B-Base-2512",
+            DownloadSource.MODELSCOPE: "mistralai/Ministral-3-14B-Base-2512",
+        },
         "Ministral-3-3B-Instruct-2512": {
             DownloadSource.DEFAULT: "mistralai/Ministral-3-3B-Instruct-2512",
             DownloadSource.MODELSCOPE: "mistralai/Ministral-3-3B-Instruct-2512",
