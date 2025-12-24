@@ -1,4 +1,32 @@
 {
+  "visual_cot_4k": {
+    "hf_hub_url": "ohjoonhee/Visual-CoT-4k-Sharegpt",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages",
+      "images": "image"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
+  },
+  "visual_cot_gqa_2k": {
+    "hf_hub_url": "ohjoonhee/Visual-CoT-GQA-2k-Sharegpt",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages",
+      "images": "images"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
+  },
   "identity": {
     "file_name": "identity.json"
   },
