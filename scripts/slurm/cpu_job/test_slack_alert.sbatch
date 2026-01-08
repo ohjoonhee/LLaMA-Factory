@@ -21,4 +21,4 @@ slack_notify () {
 }
 
 # Send “job started” alert
-slack_notify ":rocket: Job STARTED ${SLURM_JOB_NAME} (jobid=${SLURM_JOB_ID}) on ${SLURMD_NODENAME}"
+slack_notify ":rocket: Job STARTED jobname=${SLURM_JOB_NAME} jobid=${SLURM_JOB_ID} on ${SLURMD_NODENAME}"
