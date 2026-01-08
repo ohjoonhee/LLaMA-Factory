@@ -13,4 +13,16 @@ set -a
 source .env
 set +a
 
+
+slack_notify () {
+  local msg="$1"
+  curl -s -X POST -H 'Content-type: application/json' \
+    --data "{\"text\":\"${msg}\"}" \
+    "$SLACK_WEBHOOK_URL" >/dev/null
+}
+
+# Send slack alert
+slack_notify ":rocket: JOB START | ${SLURM_JOB_NAME} | id=${SLURM_JOB_ID} | node=${SLURMD_NODENAME}"
+
+# Actual job starting
 uv run llamafactory-cli train configs/slurm/qwen3vl_4b.yaml
