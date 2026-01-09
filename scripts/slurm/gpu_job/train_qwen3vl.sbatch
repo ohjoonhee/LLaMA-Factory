@@ -29,6 +29,8 @@ module load cuda/12.8
 export CUDA_HOME="/opt/ohpc/pub/apps/cuda/12.8"
 
 # Actual job starting
+export DISABLE_VERSION_CHECK=1
+export FORCE_TORCHRUN=1
 uv run llamafactory-cli train configs/slurm/qwen3vl_4b.yaml
 rc=$?
 
