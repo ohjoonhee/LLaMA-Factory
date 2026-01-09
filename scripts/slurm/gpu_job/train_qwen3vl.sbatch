@@ -26,7 +26,7 @@ slack_notify ":rocket: JOB START | ${SLURM_JOB_NAME} | id=${SLURM_JOB_ID} | node
 
 # Prepare modules
 module load cuda/12.8
-export CUDA_HOME="/opt/ohpc/pub/apps/cuda/12.8/bin"
+export CUDA_HOME="/opt/ohpc/pub/apps/cuda/12.8"
 
 # Actual job starting
 uv run llamafactory-cli train configs/slurm/qwen3vl_4b.yaml
