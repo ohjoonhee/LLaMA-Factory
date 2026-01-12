@@ -21,8 +21,15 @@ slack_notify () {
     "$SLACK_WEBHOOK_URL" >/dev/null
 }
 
-# Send slack alert
-slack_notify ":rocket: JOB START | ${SLURM_JOB_NAME} | id=${SLURM_JOB_ID} | node=${SLURMD_NODENAME}"
+LOGFILE="logs/${SLURM_JOB_NAME}_${SLURM_JOB_ID}.log"
+ABSLOG="$(readlink -f "$LOGFILE" 2>/dev/null || realpath "$LOGFILE")"
+SCRIPT_PATH="${ORIG_SBATCH_SCRIPT:-${SLURM_SUBMIT_SCRIPT:-<unknown>}}"
+
+slack_notify ":rocket: JOB START | ${SLURM_JOB_NAME} | id=${SLURM_JOB_ID} | node=${SLURMD_NODENAME}
+script: \`${SCRIPT_PATH}\`
+log: \`${ABSLOG}\`
+follow: \`tail -n 200 -F ${ABSLOG}\`
+status: \`scontrol show job ${SLURM_JOB_ID} -dd\`"
 
 # Prepare modules
 module load cuda/12.8
