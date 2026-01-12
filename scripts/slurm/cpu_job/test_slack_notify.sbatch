@@ -1,0 +1,31 @@
+#!/bin/bash
+# --- SLURM Directives ---
+#SBATCH -J launch
+#SBATCH -p cpu-farm
+#SBATCH --qos=normal
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH -o logs/%x_%j.log
+
+set -a
+source .env
+set +a
+
+
+slack_notify () {
+  local msg="$1"
+  curl -s -X POST -H 'Content-type: application/json' \
+    --data "{\"text\":\"${msg}\"}" \
+    "$SLACK_WEBHOOK_URL" >/dev/null
+}
+
+LOGFILE="logs/${SLURM_JOB_NAME}_${SLURM_JOB_ID}.log"
+ABSLOG="$(readlink -f "$LOGFILE" 2>/dev/null || realpath "$LOGFILE")"
+SCRIPT_PATH="${SLURM_SUBMIT_SCRIPT:-$(readlink -f "$0")}"
+
+slack_notify ":rocket: JOB START | ${SLURM_JOB_NAME} | id=${SLURM_JOB_ID} | node=${SLURMD_NODENAME}
+script: \`${SCRIPT_PATH}\`
+log: \`${ABSLOG}\`
+follow: \`tail -n 200 -f ${ABSLOG}\`
+status: \`scontrol show job ${SLURM_JOB_ID} -dd\`"
