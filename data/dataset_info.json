@@ -1,4 +1,32 @@
 {
+  "visual_cot_1k_distill": {
+    "hf_hub_url": "ohjoonhee/Visual-CoT-4k-Distill-Sharegpt-Matched1k",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages",
+      "images": "images"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
+  },
+  "visual_cot_gqa_2k_distill": {
+    "hf_hub_url": "ohjoonhee/Visual-CoT-GQA-2k-Distill-Sharegpt",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages",
+      "images": "images"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
+  },
   "visual_cot_4k": {
     "hf_hub_url": "ohjoonhee/Visual-CoT-4k-Sharegpt",
     "formatting": "sharegpt",
