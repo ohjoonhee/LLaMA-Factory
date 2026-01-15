@@ -29,7 +29,7 @@ log: \`${ABSLOG}\`
 follow: \`tail -n 200 -F ${ABSLOG}\`
 status: \`scontrol show job ${SLURM_JOB_ID} -dd\`"
 
-uv run python utils/model_push_to_hub.py $@
+uv run python utils/model_push_to_hub.py $SCRIPT_ARGS
 rc=$?
 
 # Send completion status
