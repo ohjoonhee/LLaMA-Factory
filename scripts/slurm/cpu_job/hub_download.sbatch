@@ -31,7 +31,7 @@ log: \`${ABSLOG}\`
 follow: \`tail -n 200 -F ${ABSLOG}\`
 status: \`scontrol show job ${SLURM_JOB_ID} -dd\`"
 
-uvx --from huggingface_hub hf download $@
+uvx --from huggingface_hub hf download $SCRIPT_ARGS
 rc=$?
 
 # Send completion status
