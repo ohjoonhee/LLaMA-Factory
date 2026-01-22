@@ -1,7 +1,7 @@
 ### model
 model_name_or_path: Qwen/Qwen3-VL-2B-Thinking
 # image_max_pixels: 262144
-video_max_pixels: 16384
+# video_max_pixels: 16384
 trust_remote_code: true
 
 ### method
@@ -17,10 +17,11 @@ deepspeed: examples/deepspeed/ds_z3_config.json
 dataset: visual_cot_27k
 template: qwen3_vl
 cutoff_len: 65536
+streaming: true
 # max_samples: 1000
 overwrite_cache: true
-preprocessing_num_workers: 16
-dataloader_num_workers: 4
+# preprocessing_num_workers: 1
+# dataloader_num_workers: 4
 
 ### output
 output_dir: saves/qwen3vl-2b-visual_cot_27k-sft-ep10
@@ -36,7 +37,8 @@ run_name: qwen3vl-2b-visual_cot_27k-sft-ep10
 per_device_train_batch_size: 1
 gradient_accumulation_steps: 2
 learning_rate: 1.0e-6
-num_train_epochs: 2.0
+# num_train_epochs: 2.0
+max_steps: 27000
 lr_scheduler_type: cosine
 warmup_ratio: 0.1
 bf16: true
