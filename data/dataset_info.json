@@ -1,4 +1,18 @@
 {
+  "visual_cot_46k": {
+    "hf_hub_url": "ohjoonhee/Visual-CoT-46k-SFT-Sharegpt-v1",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages",
+      "images": "images"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
+  },
   "visual_cot_27k": {
     "hf_hub_url": "ohjoonhee/Visual-CoT-27k-SFT-Sharegpt",
     "formatting": "sharegpt",
